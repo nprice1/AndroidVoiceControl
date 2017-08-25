@@ -68,18 +68,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             // could have heard
             ArrayList matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             mList.setAdapter(new ArrayAdapter(this, android.R.layout.simple_list_item_1, matches));
-            // matches is the result of voice input. It is a list of what the
-            // user possibly said.
-            // Using an if statement for the keyword you want to use allows the
-            // use of any activity if keywords match
-            // it is possible to set up multiple keywords to use the same
-            // activity so more than one word will allow the user
-            // to use the activity (makes it so the user doesn't have to
-            // memorize words from a list)
-            // to use an activity from the voice input information simply use
-            // the following format;
-            // if (matches.contains("keyword here") { startActivity(new
-            // Intent("name.of.manifest.ACTIVITY")
 
             for (Command command : possibleCommands) {
                 if (matches.contains(command.getVoiceCommand().toLowerCase())) {
